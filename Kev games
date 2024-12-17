@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoops Chaos</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            text-align: center;
+            color: white;
+        }
+        iframe {
+            width: 100%;
+            height: 90vh;
+            border: none;
+        }
+        .controls {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 5px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hoops Chaos 🏀</h1>
+    <div class="controls">
+        <button onclick="playGame('https://sites.google.com/view/unblocked-games-76-new/basket-random')">Play Game</button>
+        <button onclick="goFullscreen()">FS (Fullscreen)</button>
+    </div>
+    <iframe id="gameFrame"></iframe>
+
+    <script>
+        // Full JavaScript Code
+        function playGame(gameURL) {
+            document.getElementById("gameFrame").src = gameURL;
+        }
+
+        function goFullscreen() {
+            const iframe = document.getElementById("gameFrame");
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) { /* Safari */
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { /* IE11 */
+                iframe.msRequestFullscreen();
+            }
+        }
+
+        window.addEventListener("beforeunload", function () {
+            const iframe = document.getElementById("gameFrame");
+            if (iframe) {
+                iframe.src = "";
+            }
+        });
+    </script>
+</body>
+</html>
+/nig-games/                  <-- Main project folder
+│
+├── index.html               <-- Main page with game cards
+│
+├── css/                     <-- Folder for stylesheets
+│   └── styles.css           <-- Optional external CSS file
+│
+├── js/                      <-- Folder for JavaScript files
+│   └── script.js            <-- Optional external JavaScript file
+│
+├── games/                   <-- Folder containing individual game pages
+│   ├── basket-random.html   <-- Game 1 page
+│   ├── spiral-roll.html     <-- Game 2 page
+│   ├── vex-7.html           <-- Game 3 page
+│   ├── time-shooter.html    <-- Game 4 page
+│   ├── cookie-clicker.html  <-- Game 5 page
+│   ├── ...                  <-- Add more game pages here
+│
+├── images/                  <-- Folder for images/thumbnails
+│   ├── basket-random.png    <-- Thumbnail for Game 1
+│   ├── spiral-roll.png      <-- Thumbnail for Game 2
+│   ├── vex-7.png            <-- Thumbnail for Game 3
+│   ├── ...                  <-- Add more thumbnails here
+│
+└── README.md                <-- Optional file to describe your project
